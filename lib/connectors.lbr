@@ -251,6 +251,28 @@
 <text x="2.921" y="-3.048" size="0.8128" layer="21" rot="R90">right</text>
 <text x="-2.032" y="-2.794" size="0.8128" layer="21" rot="R90">gnd</text>
 </package>
+<package name="LEFT_RIGHT_BYPASS">
+<pad name="GND" x="-2.54" y="0" drill="0.6" shape="square"/>
+<pad name="LEFT" x="0" y="0" drill="0.6"/>
+<pad name="RIGHT" x="2.54" y="0" drill="0.6"/>
+<text x="0.381" y="-2.413" size="0.8128" layer="21" rot="R90">left</text>
+<text x="2.921" y="-3.048" size="0.8128" layer="21" rot="R90">right</text>
+<text x="-2.032" y="-2.794" size="0.8128" layer="21" rot="R90">gnd</text>
+<pad name="BPSL" x="5.08" y="0" drill="0.6"/>
+<pad name="BPSR" x="7.62" y="0" drill="0.6"/>
+<text x="5.461" y="-3.175" size="0.8128" layer="21" rot="R90">bps l</text>
+<text x="8.001" y="-3.302" size="0.8128" layer="21" rot="R90">bps r</text>
+</package>
+<package name="3-HOLES">
+<pad name="P$1" x="-2.54" y="0" drill="0.6" shape="square"/>
+<pad name="P$2" x="0" y="0" drill="0.6"/>
+<pad name="P$3" x="2.54" y="0" drill="0.6"/>
+<wire x1="-2.54" y1="0" x2="-1.905" y2="0" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="0" x2="-0.635" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="0.635" y2="0" width="0.127" layer="21"/>
+<wire x1="1.27" y1="0" x2="1.905" y2="0" width="0.127" layer="21"/>
+<text x="-3.175" y="1.27" size="1.27" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="BALANCED_INPUT_JACK">
@@ -312,6 +334,25 @@
 <wire x1="0" y1="-7.62" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="12.7" y1="-7.62" x2="12.7" y2="7.62" width="0.254" layer="94"/>
 <wire x1="12.7" y1="7.62" x2="0" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="LEFT_RIGHT_BYPASS">
+<pin name="LEFT" x="-5.08" y="5.08" visible="pin" length="middle"/>
+<pin name="RIGHT" x="-5.08" y="0" visible="pin" length="middle"/>
+<pin name="GND" x="-5.08" y="-5.08" visible="pin" length="middle"/>
+<wire x1="0" y1="17.78" x2="0" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="-7.62" x2="20.32" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="17.78" width="0.254" layer="94"/>
+<wire x1="20.32" y1="17.78" x2="0" y2="17.78" width="0.254" layer="94"/>
+<pin name="BYPASS_RIGHT" x="-5.08" y="10.16" visible="pin" length="middle"/>
+<pin name="BYPASS_LEFT" x="-5.08" y="15.24" visible="pin" length="middle"/>
+</symbol>
+<symbol name="BUTTON">
+<wire x1="-2.54" y1="0" x2="0" y2="2.54" width="0.254" layer="94"/>
+<circle x="0" y="2.54" radius="0.254" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="0.254" width="0.254" layer="94"/>
+<pin name="P$1" x="5.08" y="2.54" visible="pad" length="middle" rot="R180"/>
+<pin name="P$2" x="-7.62" y="0" visible="pad" length="middle"/>
+<pin name="P$3" x="5.08" y="0" visible="pad" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -439,6 +480,42 @@ Neutric male XLR jack</description>
 <connect gate="G$1" pin="GND" pad="P$1"/>
 <connect gate="G$1" pin="LEFT" pad="P$2"/>
 <connect gate="G$1" pin="RIGHT" pad="P$3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LEFT_RIGHT_BYPASS">
+<gates>
+<gate name="G$1" symbol="LEFT_RIGHT_BYPASS" x="0" y="-5.08"/>
+</gates>
+<devices>
+<device name="" package="LEFT_RIGHT_BYPASS">
+<connects>
+<connect gate="G$1" pin="BYPASS_LEFT" pad="BPSR"/>
+<connect gate="G$1" pin="BYPASS_RIGHT" pad="BPSL"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="LEFT" pad="LEFT"/>
+<connect gate="G$1" pin="RIGHT" pad="RIGHT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BUTTON">
+<gates>
+<gate name="G$1" symbol="BUTTON" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="3-HOLES">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="P$3" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
