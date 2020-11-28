@@ -443,9 +443,9 @@ Neutric male XLR jack</description>
 <devices>
 <device name="" package="SND_RET">
 <connects>
-<connect gate="G$1" pin="GND" pad="P$3"/>
+<connect gate="G$1" pin="GND" pad="P$1"/>
 <connect gate="G$1" pin="RETURN" pad="P$2"/>
-<connect gate="G$1" pin="SEND" pad="P$1"/>
+<connect gate="G$1" pin="SEND" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
